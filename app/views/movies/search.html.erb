@@ -8,17 +8,16 @@
     <ul class="navbar-nav mr-auto">
       
     </ul>
-    <form class="form-inline my-2 my-lg-0" action="/" method="post">
-    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    
   </div>
 </nav>
 
 <div class="container">
   <h2>Bonjour et bienvenue sur votre bibliothèque de film préféré</h2>
+  <%= form_tag('/') do %>
+  <%= text_field_tag "movie" %>
+  <%= submit_tag "Rechercher", class: "btn btn-large btn-primary" %>
+  <% end %>
 </div>
 <% if @info %>
 <table class="table">
@@ -41,8 +40,4 @@
     <% end %>
   </tbody>
 </table>
-<% end %>
-<%= form_tag('/') do %>
-<%= text_field_tag "movie" %>
-<%= submit_tag "Rechercher", class: "btn btn-large btn-primary" %>
 <% end %>
