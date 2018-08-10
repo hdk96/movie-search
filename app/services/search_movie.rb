@@ -2,10 +2,9 @@ require 'dotenv'
 require 'themoviedb'
 class SearchMovie 
  def initialize(movie)
-    @api=Tmdb::Api.key("d9f8e7b2d0bf04912719c8a614d4efe2")
-
     @search = Tmdb::Search.new
     Tmdb::Api.key("d9f8e7b2d0bf04912719c8a614d4efe2")
+    Tmdb::Api.language("fr")
     @search.resource('movie') # determines type of resource
     @search.query(movie) # the query to search against
     @result = @search.fetch # makes request

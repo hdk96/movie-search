@@ -1,18 +1,18 @@
-<h1>Search a movie on TheMovieDB</h1>
+<h1>Bonjour entre  le titre de ton film dans la barre de recherche</h1>
 
 <%= form_tag('/') do %>
 <%= text_field_tag "movie" %>
-<%= submit_tag "Search", class: "btn btn-large btn-primary" %>
+<%= submit_tag "Rechercher", class: "btn btn-large btn-primary" %>
 <% end %>
 
 <% if @info %>
 <table class="table">
   <thead>
     <tr>
-      <td>Poster</td>
-      <td>Title</td>
-      <td>Director</td>
-      <td>Release date</td>
+      <td>Affiche</td>
+      <td>Titre</td>
+      <td>Réalisateur</td>
+      <td>Date de sortie</td>
     </tr>
   </thead>
   <tbody>
