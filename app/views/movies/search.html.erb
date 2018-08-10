@@ -1,5 +1,29 @@
-<div class="container">
-	<h2>Bonjour et bienvenue sur votre bibliothèque de film préféré</h2>
+<h1>Search a movie on TheMovieDB</h1>
 
+<%= form_tag('/') do %>
+<%= text_field_tag "movie" %>
+<%= submit_tag "Search", class: "btn btn-large btn-primary" %>
+<% end %>
 
-</div>
+<% if @info %>
+<table class="table">
+  <thead>
+    <tr>
+      <td>Poster</td>
+      <td>Title</td>
+      <td>Director</td>
+      <td>Release date</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @info.each do |movie| %>
+      <tr>
+        <td><%= image_tag movie[:image] %></td>
+        <td><%= movie[:title] %></td>
+        <td><%= movie[:director] %></td>
+        <td><%= movie[:release_date] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
